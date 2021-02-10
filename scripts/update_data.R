@@ -8,6 +8,11 @@
 
 # Authentication: You must authenticate your Google account before running the rest of the script. You may be asked to give "Tidyverse API Packages" read/write access to your Google account.
 
+# adding code to install packages if they are not installed
+list.of.packages <- c("googledrive", "dplyr", "tidyr", "lubridate")
+new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
+if(length(new.packages)) install.packages(new.packages)
+
 # authenticate your Google account before running the rest of the script
 library(googledrive) # interface with Google drive
 drive_auth()
