@@ -9,7 +9,7 @@
 # Authentication: You must authenticate your Google account before running the rest of the script. You may be asked to give "Tidyverse API Packages" read/write access to your Google account.
 
 # adding code to install packages if they are not installed
-list.of.packages <- c("googledrive", "dplyr", "tidyr", "lubridate")
+list.of.packages <- c("googledrive", "dplyr", "tidyr", "lubridate", "httpuv")
 new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
 if(length(new.packages)) install.packages(new.packages)
 
@@ -32,6 +32,7 @@ update_date <- as.Date(update_time)
 cat(paste0(update_time, "\n"), file = "update_time.txt") # write update_time
 
 # list files in Google Drive data folder
+# TO DO --- CHECK the impact of Public_list
 files <- drive_ls("Public_List")
 
 # download sheets and copy into project folder
