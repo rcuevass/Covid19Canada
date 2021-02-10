@@ -4,6 +4,13 @@
 # Compare consistency of data obtained as CSV files from the GitHub repository (https://github.com/ishaberry/Covid19Canada)
 # with data obtained as JSON files from the API (http://api.opencovid.ca/ | documentation: https://opencovid.ca/api/)
 
+
+# adding code to install packages if they are not installed
+list.of.packages <- c("dplyr", "purrr", "jsonlite", "compareDF")
+new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
+if(length(new.packages)) install.packages(new.packages)
+
+
 # load libraries
 library(dplyr) # data manipulation
 library(purrr) # data manipulation
